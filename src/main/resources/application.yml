@@ -1,4 +1,6 @@
 spring:
+  config:
+    import: application-secret.yml
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/postgres
@@ -14,4 +16,8 @@ spring:
         auto_quote_keyword: true
 
 jwt:
-  secret: gojavapro
+  secret: ${JWT.SECRET}
+  ACCESS_TOKEN_EXPIRED: 72000000
+  REFRESH_TOKEN_EXPIRED: 1209600000
+  KAKAO_CLIENT_ID: ${KAKAO.CLIENT_ID}
+  KAKAO_REDIRECT_URI: ${KAKAO.REDIRECT_URI}

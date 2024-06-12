@@ -1,5 +1,5 @@
 package com.gojap.moviechu.movie.entity;
 
 public enum Genre {
-    ACTION, ROMANCE, FANTASY,
+    ACTION, ROMANCE, DRAMA, COMEDY, HISTORY
 }
