@@ -262,3 +262,5 @@ bin/
 
 ### VS Code ###
 .vscode/
+
+application-secret.yml

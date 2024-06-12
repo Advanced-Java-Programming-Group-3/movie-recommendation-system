@@ -3,6 +3,7 @@ package com.gojap.moviechu.manager.entity;
 import com.gojap.moviechu.member.entity.Member;
 import com.gojap.moviechu.movie.entity.Movie;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -28,4 +29,12 @@ public class MemberMovieManager {
     private int score;
 
     private String comment;
+
+    @Builder
+    public MemberMovieManager(Member member, Movie movie, int score, String comment) {
+        this.member = member;
+        this.movie = movie;
+        this.score = score;
+        this.comment = comment;
+    }
 }

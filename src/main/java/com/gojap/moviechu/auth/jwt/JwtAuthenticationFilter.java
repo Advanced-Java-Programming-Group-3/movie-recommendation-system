@@ -23,8 +23,6 @@ import static org.springframework.util.StringUtils.hasText;
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private static final String BEARER_HEADER = "Bearer ";
-
     private final JwtTokenProvider jwtTokenProvider;
 
     @Override
@@ -57,7 +55,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private boolean isContainsAccessToken(HttpServletRequest request) {
         val authorization = request.getHeader(AUTHORIZATION);
-        return authorization != null && authorization.startsWith(BEARER_HEADER);
+        return authorization != null && authorization.startsWith("Bearer ");
     }
 
     private String getAuthorizationAccessToken(HttpServletRequest request) {
@@ -65,6 +63,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     private String getTokenFromBearerString(String token) {
-        return token.replaceFirst(BEARER_HEADER, BEARER_HEADER);
+        return token.replaceFirst("Bearer ", "");
     }
 }

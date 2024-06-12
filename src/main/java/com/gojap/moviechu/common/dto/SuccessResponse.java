@@ -9,9 +9,9 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
 @Builder(access = AccessLevel.PRIVATE)
 public record SuccessResponse<T>(
-        boolean success,
-        @NonNull String message,
-        @JsonInclude(value = NON_NULL) T data
+    boolean success,
+    @NonNull String message,
+    @JsonInclude(value = NON_NULL) T data
 ) implements BaseResponse {
 
     public static <T> SuccessResponse<T> success(String message, T data) {

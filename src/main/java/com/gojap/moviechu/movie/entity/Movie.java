@@ -3,6 +3,7 @@ package com.gojap.moviechu.movie.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
@@ -28,8 +29,10 @@ public class Movie {
 
     private LocalDate openingDate;
 
+    @Setter
     private int score;
 
+    @Enumerated(value = EnumType.STRING)
     private Genre genre;
 
     private String imageUrl;
